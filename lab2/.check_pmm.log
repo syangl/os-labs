@@ -1,0 +1,61 @@
+(THU.CST) os is loading ...
+
+Special kernel symbols:
+  entry  0xc0100036 (phys)
+  etext  0xc01060a7 (phys)
+  edata  0xc011b000 (phys)
+  end    0xc011bf28 (phys)
+Kernel executable memory footprint: 112KB
+ebp:0xc0117f38 eip:0xc0100a9a arguments:0x00010094 0x00010094 0xc0117f68 0xc01000c8
+    kern/debug/kdebug.c:309: print_stackframe+22
+ebp:0xc0117f48 eip:0xc0100d7f arguments:0x00000000 0x00000000 0x00000000 0xc0117fb8
+    kern/debug/kmonitor.c:129: mon_backtrace+10
+ebp:0xc0117f68 eip:0xc01000c8 arguments:0x00000000 0xc0117f90 0xffff0000 0xc0117f94
+    kern/init/init.c:49: grade_backtrace2+33
+ebp:0xc0117f88 eip:0xc01000f2 arguments:0x00000000 0xffff0000 0xc0117fb4 0x0000002a
+    kern/init/init.c:54: grade_backtrace1+38
+ebp:0xc0117fa8 eip:0xc0100111 arguments:0x00000000 0xc0100036 0xffff0000 0x0000001d
+    kern/init/init.c:59: grade_backtrace0+23
+ebp:0xc0117fc8 eip:0xc0100137 arguments:0xc01060dc 0xc01060c0 0x00000f28 0x00000000
+    kern/init/init.c:64: grade_backtrace+34
+ebp:0xc0117ff8 eip:0xc010008b arguments:0xc01062d4 0xc01062dc 0xc0100d07 0xc01062fb
+    kern/init/init.c:29: kern_init+84
+memory management: default_pmm_manager
+e820map:
+  memory: 0009fc00, [00000000, 0009fbff], type = 1.
+  memory: 00000400, [0009fc00, 0009ffff], type = 2.
+  memory: 00010000, [000f0000, 000fffff], type = 2.
+  memory: 07ee0000, [00100000, 07fdffff], type = 1.
+  memory: 00020000, [07fe0000, 07ffffff], type = 2.
+  memory: 00040000, [fffc0000, ffffffff], type = 2.
+check_alloc_page() succeeded!
+check_pgdir() succeeded!
+check_boot_pgdir() succeeded!
+-------------------- BEGIN --------------------
+PDE(0e0) c0000000-f8000000 38000000 urw
+  |-- PTE(38000) c0000000-f8000000 38000000 -rw
+PDE(001) fac00000-fb000000 00400000 -rw
+  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
+  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
+--------------------- END ---------------------
+++ setup timer interrupts
+100 ticks
+End of Test.
+kernel panic at kern/trap/trap.c:18:
+    EOT: kernel seems ok.
+stack trackback:
+ebp:0xc0117ee0 eip:0xc0100a9a arguments:0xc0106188 0xc0117f24 0x00000012 0xc0117f5c
+    kern/debug/kdebug.c:309: print_stackframe+22
+ebp:0xc0117f10 eip:0xc0100451 arguments:0xc010646e 0x00000012 0xc0106458 0x00000003
+    kern/debug/panic.c:27: __panic+103
+ebp:0xc0117f30 eip:0xc01018d2 arguments:0xc0117f68 0xc010028d 0xc010023e 0xc0117f5c
+    kern/trap/trap.c:0: print_ticks+65
+ebp:0xc0117f60 eip:0xc0101d79 arguments:0xc0117f8c 0xc01002b0 0xc01063ea 0xc0117fa4
+    kern/trap/trap.c:160: trap_dispatch+131
+ebp:0xc0117f80 eip:0xc0101e33 arguments:0xc0117f8c 0x0000807c 0x00010094 0xc0117ff8
+    kern/trap/trap.c:197: trap+16
+ebp:0xc0117ff8 eip:0xc01028be arguments:0xc01062d4 0xc01062dc 0xc0100d07 0xc01062fb
+    kern/trap/trapentry.S:24: <unknown>+0
+Welcome to the kernel debug monitor!!
+Type 'help' for a list of commands.
+K> 

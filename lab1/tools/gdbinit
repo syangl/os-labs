@@ -1,0 +1,11 @@
+file bin/kernel
+
+define hook-stop
+x/i $pc
+end
+
+set arch i8086
+target remote :1234
+break kern_init
+
+continue
